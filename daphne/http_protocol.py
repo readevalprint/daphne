@@ -1,16 +1,16 @@
 from __future__ import unicode_literals
 
 import logging
-import six
 import time
 import traceback
 
+import six
 from six.moves.urllib_parse import unquote, unquote_plus
 from twisted.protocols.policies import ProtocolWrapper
 from twisted.web import http
 
 from .utils import parse_x_forwarded_for
-from .ws_protocol import WebSocketProtocol, WebSocketFactory
+from .ws_protocol import WebSocketFactory, WebSocketProtocol
 
 logger = logging.getLogger(__name__)
 
@@ -245,7 +245,7 @@ class WebRequest(http.Request):
                     "time_taken": self.duration(),
                     "size": self.sentLength,
                 })
-            except Exception as e:
+            except Exception:
                 logging.error(traceback.format_exc())
         else:
             logger.debug("HTTP response chunk for %s", self.reply_channel)

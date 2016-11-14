@@ -1,9 +1,8 @@
 import logging
-import socket
 
-from twisted.internet import reactor, defer
-from twisted.logger import globalLogBeginner, STDLibLogObserver
+from twisted.internet import defer, reactor
 from twisted.internet.endpoints import serverFromString
+from twisted.logger import STDLibLogObserver, globalLogBeginner
 
 from .http_protocol import HTTPFactory
 
@@ -171,11 +170,11 @@ class Server(object):
 
 
 def build_endpoint_description_strings(
-    host=None,
-    port=None,
-    unix_socket=None,
-    file_descriptor=None
-    ):
+        host=None,
+        port=None,
+        unix_socket=None,
+        file_descriptor=None
+        ):
     """
     Build a list of twisted endpoint description strings that the server will listen on.
     This is to streamline the generation of twisted endpoint description strings from easier
@@ -194,9 +193,3 @@ def build_endpoint_description_strings(
         socket_descriptions.append('fd:domain=INET:fileno=%d' % int(file_descriptor))
 
     return socket_descriptions
-
-
-
-
-
-

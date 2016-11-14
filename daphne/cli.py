@@ -1,15 +1,16 @@
-import sys
 import argparse
-import logging
 import importlib
-from .server import Server, build_endpoint_description_strings
-from .access import AccessLogGenerator
+import logging
+import sys
 
+from .access import AccessLogGenerator
+from .server import Server, build_endpoint_description_strings
 
 logger = logging.getLogger(__name__)
 
 DEFAULT_HOST = '127.0.0.1'
 DEFAULT_PORT = 8000
+
 
 class CommandLineInterface(object):
     """

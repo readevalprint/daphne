@@ -1,13 +1,13 @@
 from __future__ import unicode_literals
 
 import logging
-import six
 import time
 import traceback
+
+import six
+from autobahn.twisted.websocket import ConnectionDeny, WebSocketServerFactory, WebSocketServerProtocol
 from six.moves.urllib_parse import unquote, urlencode
 from twisted.internet import defer
-
-from autobahn.twisted.websocket import WebSocketServerProtocol, WebSocketServerFactory, ConnectionDeny
 
 from .utils import parse_x_forwarded_for
 

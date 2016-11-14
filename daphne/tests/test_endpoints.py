@@ -1,11 +1,13 @@
 # coding: utf8
 from __future__ import unicode_literals
-from unittest import TestCase
-from six import string_types
-import logging
 
-from ..server import Server, build_endpoint_description_strings
+import logging
+from unittest import TestCase
+
+from six import string_types
+
 from ..cli import CommandLineInterface
+from ..server import Server, build_endpoint_description_strings
 
 # this is the callable that will be tested here
 build = build_endpoint_description_strings

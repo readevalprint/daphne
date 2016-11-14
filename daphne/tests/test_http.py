@@ -1,6 +1,8 @@
 # coding: utf8
 from __future__ import unicode_literals
+
 from unittest import TestCase
+
 from asgiref.inmemory import ChannelLayer
 from twisted.test import proto_helpers
 
@@ -50,7 +52,8 @@ class TestHTTPProtocol(TestCase):
             }
         )
         # Make sure that comes back right on the protocol
-        self.assertEqual(self.tr.value(), b"HTTP/1.1 201 Created\r\nTransfer-Encoding: chunked\r\nX-Test: Boom!\r\n\r\n6\r\nOH HAI\r\n0\r\n\r\n")
+        self.assertEqual(
+            self.tr.value(), b"HTTP/1.1 201 Created\r\nTransfer-Encoding: chunked\r\nX-Test: Boom!\r\n\r\n6\r\nOH HAI\r\n0\r\n\r\n")
 
     def test_root_path_header(self):
         """
